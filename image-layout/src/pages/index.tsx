@@ -6,11 +6,11 @@ export default function Home() {
     <Fragment>
       <section className=" max-w-7xl py-5 px-10">
         <h1 className="font-bold text-center text-4xl py-5">Image-Layout</h1>
-        <div className="relative grid grid-cols-2 gap-10">
+        <div className="relative grid md:grid-cols-2 gap-10">
           <div className="relative border border-gray-700 rounded">
             {/* the layout porperty in the image helps the image to be responsive
-              but the images should be specifically what width and height you need
-              it cannot work with the custoom height */}
+              but the images should be specifically default width and height
+              it cannot change accordiing to the custom height */}
             <Image
               layout="responsive"
               objectFit="cover"

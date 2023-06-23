@@ -4,13 +4,9 @@ import Paragraph from "@/components/ui/Paragraph";
 export default function Home() {
   return (
     <>
-      <LargeHeading className="font-bold">Next Js API Genertor application</LargeHeading>
+      <LargeHeading className="font-bold">Next Custom Application</LargeHeading>
       <Paragraph>
-        hey there i am chandra shekar
-      </Paragraph>
-      <LargeHeading>Hello chandra</LargeHeading>
-      <Paragraph>
-        how are you doing
+        Build custom components in an easy and good looking
       </Paragraph>
     </>
   )

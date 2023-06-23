@@ -13,7 +13,7 @@ export default function RootLayout({ children }: {children: React.ReactNode}) {
       <div className='min-h-screen bg-slate-50 dark:bg-slate-900 antialiased'>
         <Providers>
           <Navbar />
-          <div className='pt-32'>
+          <div className='pt-24'>
             {children}
           </div>
         </Providers>

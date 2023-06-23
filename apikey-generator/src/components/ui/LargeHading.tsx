@@ -3,7 +3,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import { HTMLAttributes, forwardRef } from "react";
 
 const largeHeadingVarients = cva(
-  'max-width-prose text-4xl font-extrabold text-gray-900 dark:text-gray-300 mb-2 text-center lg:text-left leading-tight tracking-tighter',
+  'max-width-prose text-4xl font-extrabold text-gray-900 dark:text-gray-300 mb-2 text-center leading-tight tracking-tighter',
   {
     variants: {
       size: {

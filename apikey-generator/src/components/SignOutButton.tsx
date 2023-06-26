@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import Button, { buttonVarients } from './ui/Button'
 import { signOut } from 'next-auth/react';
-import { toast } from 'react-hot-toast';
+import { toast } from './ui/Toast';
 
 interface SignOutButtonProps {}
 
@@ -13,12 +13,11 @@ const SignOutButton: FC<SignOutButtonProps> = ({}) => {
     try {
       await signOut();
     } catch(error: any){ 
-      // toast({
-      //   type:'error',
-      //   title: 'error signing out',
-      //   message: error,
-      // })
-      toast.error("message",  error.message)
+      toast({
+        type:'error',
+        title: 'error signing out',
+        message: error,
+      })
     }
 
   }

@@ -35,7 +35,7 @@ const Navbar = ({}) => {
         <div className='hidden md:flex gap-4'>
           <ThemeToggle />
           <Link 
-            href="/"
+            href="/documentation"
             className={buttonVarients({variant: "ghost"})}
           >
             Documentation

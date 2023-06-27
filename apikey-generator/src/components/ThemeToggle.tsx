@@ -2,7 +2,6 @@ import { useTheme } from 'next-themes'
 import { FC } from 'react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem } from './ui/DropdownMenu';
 import Button from './ui/Button';
-import { Laptop, Moon, Sun } from 'lucide-react';
 import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
 import { Icons } from './Icons';
 

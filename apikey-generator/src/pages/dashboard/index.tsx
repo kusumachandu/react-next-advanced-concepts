@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import type { Metadata } from "next";
 import { getSession } from "next-auth/react";
-import { notFound } from "next/navigation";
 import { Session } from "inspector";
 import RequestApiKey from "@/components/RequestApiKey";
 import ApiDashboard from "@/components/ApiDashboard";

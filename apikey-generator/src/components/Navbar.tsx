@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import { buttonVarients } from '@/components/ui/Button'
-import SignInButton from '@/components/SignInButton'
 import SignOutButton from '@/components/SignOutButton'
 import { useEffect, useState } from 'react'
 import { Session } from 'inspector';
 import ThemeToggle from './ThemeToggle'
+import SignInButton from './SignInButton';
+import { getSession } from 'next-auth/react';
 
 const Navbar = ({}) => {
   const [session, setSession] = useState<Session | any>();
@@ -12,9 +13,8 @@ const Navbar = ({}) => {
   useEffect(() => {
     async function fetchSession() {
       try {
-        const response = await fetch('/api/session');
-        const data = await response.json();
-        setSession(data.session);
+        const response = await getSession();
+        setSession(response);
       } catch (error) {
         console.error(error);
       }

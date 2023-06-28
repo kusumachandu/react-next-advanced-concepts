@@ -1,5 +1,3 @@
-"use-client"
-
 import { FC, useState } from 'react'
 import Button, { buttonVarients } from './ui/Button';
 import { signIn } from 'next-auth/react';

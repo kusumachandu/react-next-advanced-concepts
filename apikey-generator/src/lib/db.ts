@@ -16,22 +16,3 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 export const db = prisma
-
-// import { MongoClient } from "mongodb";
-
-// export const connectToDatabase = async () => {
-//   try {
-//     const client = new MongoClient(process.env.DATABASE_URL, {
-//       useNewUrlParser: true,
-//       useUnifiedTopology: true,
-//     });
-  
-//     if (!client.isConnected()) {
-//       await client.connect();
-//     }
-  
-//     return client.db();
-//   } catch(error) {
-//     console.log(error.message);
-//   }
-// }

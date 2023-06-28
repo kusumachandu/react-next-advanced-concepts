@@ -6,7 +6,7 @@ import { PrismaAdapter }  from '@next-auth/prisma-adapter';
 
 function getGoogleCredentinals() {
   const clientId = process.env.GOOGLE_CLIENT_ID;
-  const clientSecret = process.env.GOOGLE_CLEINT_SECRET;
+  const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
 
   if(!clientId || clientId.length === 0){ 
     throw new Error("client id is undefined");
@@ -65,8 +65,27 @@ export const authOptions: NextAuthOptions = {
       return session
     },
 
-    // async jwt({token, user}) {
-    //   const dbUser = await db
-    // }
+    async jwt({token, user}) {
+      const dbUser = await db.user.findFirst({
+        where: {
+          email: token.email,
+        }
+      });
+
+      if(!dbUser) {
+        token.id = user!.id;
+        return token;
+      }
+
+      return {
+        id: dbUser.id,
+        name: dbUser.name,
+        email: dbUser.email,
+        picture: dbUser.image
+      }
+    },
+    redirect() {
+      return '/dashboard'
+    }
   }
 }

@@ -3,7 +3,6 @@ import { DataGrid, GridColDef, GridColumnHeaderParams } from '@mui/x-data-grid';
 import { ApiRequest } from '@prisma/client';
 import { useTheme } from 'next-themes';
 import { ThemeProvider, createTheme } from '@mui/material';
-import React from 'react';
 
 const columnsDraft: GridColDef[] = [
   {

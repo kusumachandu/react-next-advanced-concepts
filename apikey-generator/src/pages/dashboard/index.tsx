@@ -11,14 +11,18 @@ export const metadata: Metadata = {
 };
 
 const Dashboard: FC = ({}) => {
-  const [user, setUser] = useState<Session | any>();
+  const [user, setUser] = useState<Session | any>({});
   const [apiKey, setApiKey] = useState<any>();
+  const [allKeys, setAllKeys] = useState<any>();
+  const [activeApiKey, setActiveApiKey] = useState<any>();
+  const [userRequests, setUserRequests] = useState<any>();
+  const [serialRequests, setSerialRequests] = useState<any>();
 
   useEffect(() => {
     async function fetchSession() {
       try {
         const response = await getSession();
-        setUser(response);
+        setUser(response?.user);
       } catch (error) {
         console.error(error);
       }
@@ -37,6 +41,10 @@ const Dashboard: FC = ({}) => {
         const res = await fetch('/api/session');
         const data = await res.json();
         setApiKey(data.apiKey);
+        setAllKeys(data.apiKeys);
+        setActiveApiKey(data.activeApiKey);
+        setUserRequests(data.userRequests);
+        setSerialRequests(data.serializedRequest);
       } catch (error) {
         console.error(error);
       }
@@ -46,10 +54,12 @@ const Dashboard: FC = ({}) => {
 
   }, [user])
 
-
   return (
     <div className="max-w-7xl mx-auto">
-      { apiKey ? <ApiDashboard /> : <RequestApiKey /> }
+      { apiKey ? 
+        <ApiDashboard allApiKeys={allKeys} activeApiKey={activeApiKey} user={user} userRequests={userRequests} serialRequest={serialRequests}  /> 
+        : 
+        <RequestApiKey /> }
     </div>
   );
 };
